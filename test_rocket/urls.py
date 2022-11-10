@@ -8,5 +8,5 @@ urlpatterns = [
     # path('api/v1/retailnetwork/', include('retailnetwork.urls')),
     # path('api/v1/indentrepreneur/', include('indentrepreneur.urls')),
     path('api/v1/dealership/', include('dealership.urls')),
-    # path('api/v1/distributor/', include('distributor.urls')),
+    path('api/v1/distributor/', include('distributor.urls')),
 ]
