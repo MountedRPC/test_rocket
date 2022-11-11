@@ -46,7 +46,6 @@ class Products(models.Model):
     name = models.CharField(max_length=70, blank=True)
     model = models.CharField(max_length=70, blank=True)
     date = models.DateTimeField(default=datetime.now(), blank=True)  # auto_now_add=True,:(
-    employees = models.IntegerField(default=0, blank=True)
     idFactory = models.ForeignKey(Factory, on_delete=models.CASCADE)
 
     def __str__(self):
