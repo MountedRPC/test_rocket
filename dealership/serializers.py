@@ -14,7 +14,8 @@ class DealershipSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Dealership
-        fields = ['name', 'date_create', 'employees', 'idContacts', 'idContacts_id', 'idProvider', 'idProvider_id',
+        fields = ['id', 'name', 'date_create', 'employees', 'idContacts', 'idContacts_id', 'idProvider',
+                  'idProvider_id',
                   'debt']
 
 

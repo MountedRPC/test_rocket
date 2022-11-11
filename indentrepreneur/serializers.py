@@ -14,7 +14,8 @@ class IndentrepreneurSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Indentrepreneur
-        fields = ['name', 'date_create', 'employees', 'idContacts', 'idContacts_id', 'idProvider', 'idProvider_id',
+        fields = ['id', 'name', 'date_create', 'employees', 'idContacts', 'idContacts_id', 'idProvider',
+                  'idProvider_id',
                   'debt']
 
 

@@ -14,7 +14,8 @@ class DistributorSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Distributor
-        fields = ['name', 'date_create', 'employees', 'idContacts', 'idContacts_id', 'idProvider', 'idProvider_id',
+        fields = ['id', 'name', 'date_create', 'employees', 'idContacts', 'idContacts_id', 'idProvider',
+                  'idProvider_id',
                   'debt']
 
 
