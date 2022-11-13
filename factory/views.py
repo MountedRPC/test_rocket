@@ -1,10 +1,12 @@
+import qrcode
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import permissions, generics, status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from factory.models import Factory, Products
 from factory.serializers import FactorySerializer, ProductsSerializer, DetailFactorySerializer, \
-    DetailProductsFactorySerializer
+    DetailProductsFactorySerializer, CreateFactorySerializer
+from factory.tasks import send_mail_task
 
 
 class AllObjectFactoryView(APIView):
@@ -35,7 +37,7 @@ class CreateFactoryView(APIView):
     permission_classes = [permissions.IsAuthenticated]
 
     def post(self, request, format=None):
-        serializer = DetailFactorySerializer(data=request.data)
+        serializer = CreateFactorySerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
@@ -133,3 +135,20 @@ class UpdateDeleteProductFactoryView(APIView):
             {"message": "Object deleted!"},
             status=status.HTTP_200_OK
         )
+
+
+class GeneratedQRCodeView(APIView):
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get(self, request, pk, *args):
+        factory = Factory.objects.filter(id=pk)
+        serializer = DetailFactorySerializer(factory, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+    def post(self, request, pk, *args):
+        user_email = request.data['email']
+        factory = Factory.objects.get(id=pk)
+        img = qrcode.make(factory.idContacts.email)
+        img.save(f"media/qr/{factory.name + user_email}.png")
+        send_mail_task.delay(f"media/qr/{factory.name + user_email}.png", user_email)
+        return Response({"Message": "QR Create. And send!"}, status=status.HTTP_200_OK)

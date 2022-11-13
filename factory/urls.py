@@ -10,4 +10,5 @@ urlpatterns = [
     path('update_delete_net/<int:pk>', UpdateDeleteFactoryView.as_view()),
     path('create_product', CreateProductFactoryView.as_view()),  # 4.5
     path('update_delete_product/<int:pk>', UpdateDeleteProductFactoryView.as_view()),
+    path('qrcode_net/<int:pk>',GeneratedQRCodeView.as_view())
 ]
