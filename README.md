@@ -53,6 +53,7 @@
     test_rocket\indentrepreneur\serializers.py  - Индивидуальный предприниматель.
  #### Пункт номер 5:
     Права доступа:
+    # test_rocket\test_rocket\setting.py
  ```python
  # test_rocket\test_rocket\setting.py
  REST_FRAMEWORK = {
@@ -120,7 +121,7 @@ def send_mail_task(path, email):
 ```
 #### Пункт номер 4:
     Валидация входящих данных:
-    
+    test_rocket\factory\serializers.py
 ```python    
 
 # test_rocket\factory\serializers.py Factory
@@ -154,6 +155,8 @@ class DetailProductsFactorySerializer(serializers.ModelSerializer):
 ```
 #### Пункт номер 5:    
     Доступ Token:
+    test_rocket\test_rocket\urls.py
+    test_rocket\test_rocket\setting.py
 ```python 
 # test_rocket\test_rocket\urls.py
 urlpatterns = [
