@@ -19,7 +19,7 @@ def send_mail_task(path, email):
 
 
 @app.task
-def repeat_order_make():
+def update_debt():
     random_count = random.randint(5, 500)
     distributor = Distributor.objects.get(id=5)
     distributor.debt += random_count
