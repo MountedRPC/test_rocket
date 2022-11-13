@@ -1,0 +1,181 @@
+-- DELETE FROM factory_address;
+-- DELETE FROM factory_contacts;
+-- DELETE FROM factory_factory;
+-- DELETE FROM factory_products;
+
+-- DELETE FROM distributor_address;
+-- DELETE FROM distributor_contacts;
+-- DELETE FROM distributor_distributor;
+-- DELETE FROM distributor_products;
+
+-- DELETE FROM dealership_address;
+-- DELETE FROM dealership_contacts;
+-- DELETE FROM dealership_dealership;
+-- DELETE FROM dealership_products;
+
+-- DELETE FROM retailnetwork_address;
+-- DELETE FROM retailnetwork_contacts;
+-- DELETE FROM retailnetwork_retailnetwork;
+-- DELETE FROM retailnetwork_products;
+
+-- DELETE FROM indentrepreneur_address;
+-- DELETE FROM indentrepreneur_contacts;
+-- DELETE FROM indentrepreneur_indentrepreneur;
+-- DELETE FROM indentrepreneur_products;
+
+
+-- INSERT TABLE Factory, Factory_Product, Factory_Contacts ,Factory_Address;
+
+-- Address:
+INSERT INTO public.factory_address (id, country, city, street, house) VALUES (1,'USA', 'Los Angeles', 'Angels', 13);
+INSERT INTO public.factory_address (id, country, city, street, house) VALUES (2,'Russia', 'Moscow', 'Yakub Kolas', null);
+INSERT INTO public.factory_address (id, country, city, street, house) VALUES (3,'Belarus', 'Minsk', 'Lenina', null);
+INSERT INTO public.factory_address (id, country, city, street, house) VALUES (4,'France', 'Paris', 'Jumbo', 13);
+INSERT INTO public.factory_address (id, country, city, street, house) VALUES (5,'China', 'Beijing', null, null);
+
+-- Contacts
+INSERT INTO public.factory_contacts (id, email, "idAddress_id") VALUES (1,'apple@mail.com', 1);
+INSERT INTO public.factory_contacts (id, email, "idAddress_id") VALUES (2,'philips@mail.com', 2);
+INSERT INTO public.factory_contacts (id, email, "idAddress_id") VALUES (3,'asus@mail.com', 3);
+INSERT INTO public.factory_contacts (id, email, "idAddress_id") VALUES (4,'hp@mail.com', 4);
+INSERT INTO public.factory_contacts (id, email, "idAddress_id") VALUES (5,'samsung@mail.com', 5);
+
+-- Factory:
+INSERT INTO public.factory_factory (id, name, employees, date_create, "idContacts_id") VALUES (1,'Apple', 3010, '2007-11-11 14:52:12.437000 +00:00', 1);
+INSERT INTO public.factory_factory (id, name, employees, date_create, "idContacts_id") VALUES (2,'Philips', 13411, '2020-11-11 14:52:12.437000 +00:00', 2);
+INSERT INTO public.factory_factory (id, name, employees, date_create, "idContacts_id") VALUES (3,'Asus', 134, '2003-10-11 14:52:12.437000 +00:00', 3);
+INSERT INTO public.factory_factory (id, name, employees, date_create, "idContacts_id") VALUES (4,'HP', 233, '2001-11-20 14:52:12.437000 +00:00', 4);
+INSERT INTO public.factory_factory (id, name, employees, date_create, "idContacts_id") VALUES (5,'Samsung', 3010, '2011-10-15 14:52:12.437000 +00:00', 5);
+
+-- Product:
+INSERT INTO public.factory_products (id, name, model, date, "idFactory_id") VALUES (1,'Iphone 6s', 'Apple Iphone', '2022-11-11 15:13:19.771000 +00:00', 1);
+INSERT INTO public.factory_products (id, name, model, date, "idFactory_id") VALUES (2,'Mixer 2dr', 'Philips Mixer', '2022-11-11 15:13:19.771000 +00:00', 2);
+INSERT INTO public.factory_products (id, name, model, date, "idFactory_id") VALUES (3,'TUF GAMING Laptop', 'Asus TUF GAMING', '2022-11-11 15:13:19.771000 +00:00', 3);
+INSERT INTO public.factory_products (id, name, model, date, "idFactory_id") VALUES (4,'HP Laster printer', 'Laster', '2022-11-11 15:13:19.771000 +00:00', 4);
+INSERT INTO public.factory_products (id, name, model, date, "idFactory_id") VALUES (5,'Samsung b8', 'Samsung phone', '2022-11-11 15:13:19.771000 +00:00', 5);
+
+-- INSERT TABLE Distributor, Distributor_Product, Distributor_Contacts ,Distributor_Address;
+
+-- Address:
+INSERT INTO public.distributor_address (id, country, city, street, house) VALUES (1,'Belarus', 'Minsk', 'Kalinina', 167);
+INSERT INTO public.distributor_address (id, country, city, street, house) VALUES (2,'Belarus', 'Minsk', 'Logoisk tract', null);
+INSERT INTO public.distributor_address (id, country, city, street, house) VALUES (3,'Belarus', 'Minsk', 'Independence', 13);
+INSERT INTO public.distributor_address (id, country, city, street, house) VALUES (4,'Belarus', 'Minsk', null, null);
+INSERT INTO public.distributor_address (id, country, city, street, house) VALUES (5,'Belarus', 'Minsk', null, null);
+
+-- Contacts
+INSERT INTO public.distributor_contacts (id, email, "idAddress_id") VALUES (1,'uplink@mail.com', 1);
+INSERT INTO public.distributor_contacts (id, email, "idAddress_id") VALUES (2,'Localsystems@mail.com', 2);
+INSERT INTO public.distributor_contacts (id, email, "idAddress_id") VALUES (3,'ElectroMarketPlus@mail.com', 3);
+INSERT INTO public.distributor_contacts (id, email, "idAddress_id") VALUES (4,'NVACONTACT@mail.com', 4);
+INSERT INTO public.distributor_contacts (id, email, "idAddress_id") VALUES (5,'ASBIS@mail.com', 5);
+
+-- Distributor:
+INSERT INTO public.distributor_distributor (id, name, employees, debt, date_create, "idContacts_id", "idProvider_id")
+VALUES (1,'Uplink', 1213, 23131.13, '2021-11-11 15:26:21.177000 +00:00', 1, 1);
+INSERT INTO public.distributor_distributor (id, name, employees, debt, date_create, "idContacts_id", "idProvider_id")
+VALUES (2,'Localsystems', 121, 31.13, '2021-03-11 15:26:21.177000 +00:00', 2, 2);
+INSERT INTO public.distributor_distributor (id, name, employees, debt, date_create, "idContacts_id", "idProvider_id")
+VALUES (3,'ElectroMarketPlus', 20130, 31311.13, '2019-11-11 15:26:21.177000 +00:00', 3, 3);
+INSERT INTO public.distributor_distributor (id, name, employees, debt, date_create, "idContacts_id", "idProvider_id")
+VALUES (4,'NVACONTACT', 31341, 23.13, '2012-12-21 15:26:21.177000 +00:00', 4, 4);
+INSERT INTO public.distributor_distributor (id, name, employees, debt, date_create, "idContacts_id", "idProvider_id")
+VALUES (5,'ASBIS', 13, 1.13, '2001-09-11 15:26:21.177000 +00:00', 5, 5);
+
+-- Product
+INSERT INTO public.distributor_products (id, name, model, date, "idDistributor_id") VALUES (1,'Printer Lester HP', 'Lester', '2022-03-13 17:17:05.769000 +00:00', 1);
+INSERT INTO public.distributor_products (id, name, model, date, "idDistributor_id") VALUES (2,'Mouse Rzer', 'Rzer', '2019-12-13 17:17:05.769000 +00:00', 2);
+INSERT INTO public.distributor_products (id, name, model, date, "idDistributor_id") VALUES (3,'Asus TUF GAMING', 'Laptop gaming', '2020-01-13 17:17:05.769000 +00:00', 3);
+INSERT INTO public.distributor_products (id, name, model, date, "idDistributor_id") VALUES (4,'Macbook 13', 'Apple', '2021-02-13 17:17:05.769000 +00:00', 4);
+INSERT INTO public.distributor_products (id, name, model, date, "idDistributor_id") VALUES (5,'Apple iPhone 7s', 'Apple iPhone ', '2010-11-13 17:17:05.769000 +00:00', 5);
+
+-- INSERT TABLE Dealership, Dealership_Product, Dealership_Contacts ,Dealership_Address;
+
+-- Address:
+INSERT INTO public.dealership_address (id, country, city, street, house) VALUES (1,'Russia', 'Piter', 'Nekrasova', null);
+INSERT INTO public.dealership_address (id, country, city, street, house) VALUES (2,'USA', 'New York', null, null);
+INSERT INTO public.dealership_address (id, country, city, street, house) VALUES (3,'Russia', 'Yfa', null, null);
+INSERT INTO public.dealership_address (id, country, city, street, house) VALUES (4,'USA', 'Los Angeles', 'Bylvar', 12);
+INSERT INTO public.dealership_address (id, country, city, street, house) VALUES (5,'Russia', 'Moscow', 'Arbat', 31);
+
+-- Contacts
+INSERT INTO public.dealership_contacts (id, email, "idAddress_id") VALUES (1,'mvideo@gmail.com', 1);
+INSERT INTO public.dealership_contacts (id, email, "idAddress_id") VALUES (2,'dns-shop@gmail.com', 2);
+INSERT INTO public.dealership_contacts (id, email, "idAddress_id") VALUES (3,'citilink@gmail.com', 3);
+INSERT INTO public.dealership_contacts (id, email, "idAddress_id") VALUES (4,'eldorado@gmail.com', 4);
+INSERT INTO public.dealership_contacts (id, email, "idAddress_id") VALUES (5,'svyaznoy@gmail.com', 5);
+
+-- Dealership:
+INSERT INTO public.dealership_dealership (id, name, employees, debt, date_create, "idContacts_id", "idProvider_id") VALUES (1,'Mvideo', 1213, 13342.31, '2012-11-12 17:41:15.116000 +00:00', 1, 1);
+INSERT INTO public.dealership_dealership (id, name, employees, debt, date_create, "idContacts_id", "idProvider_id") VALUES (2,'Dns', 142, 0, '2001-11-12 17:41:15.116000 +00:00', 2, 2);
+INSERT INTO public.dealership_dealership (id, name, employees, debt, date_create, "idContacts_id", "idProvider_id") VALUES (3,'Citilink', 10, 1.2, '2004-11-12 17:41:15.116000 +00:00', 3, 3);
+INSERT INTO public.dealership_dealership (id, name, employees, debt, date_create, "idContacts_id", "idProvider_id") VALUES (4,'Eldorado', 42, 12.1, '2005-11-12 17:41:15.116000 +00:00', 4, 4);
+INSERT INTO public.dealership_dealership (id, name, employees, debt, date_create, "idContacts_id", "idProvider_id") VALUES (5,'Svyaznoy', 90, 12.3, '2012-11-12 17:41:15.116000 +00:00', 5, 5);
+
+-- Product
+INSERT INTO public.dealership_products (id, name, model, date, "idDealership_id") VALUES (1,'Xiaomi 12T', 'Xiaomi', '2021-11-12 17:46:45.655000 +00:00', 1);
+INSERT INTO public.dealership_products (id, name, model, date, "idDealership_id") VALUES (2,'HUAWEI Mate 50', 'HUAWEI', '2020-11-12 17:46:45.655000 +00:00', 2);
+INSERT INTO public.dealership_products (id, name, model, date, "idDealership_id") VALUES (3,'HUAWEI nova', 'HUAWEI', '2021-11-12 17:46:45.655000 +00:00', 3);
+INSERT INTO public.dealership_products (id, name, model, date, "idDealership_id") VALUES (4,'Infinix Smart ', 'Infinix', '2019-11-12 17:46:45.655000 +00:00', 4);
+INSERT INTO public.dealership_products (id, name, model, date, "idDealership_id") VALUES (5,'nfinix Smart 6 X6511', 'Infinix', '2022-11-12 17:46:45.655000 +00:00', 5);
+
+
+-- INSERT TABLE Retailnetwork, Retailnetwork_Product, Retailnetwork_Contacts ,Retailnetwork_Address;
+
+-- Address:
+INSERT INTO public.retailnetwork_address (id, country, city, street, house) VALUES (1,'USA', 'New York', null, null);
+INSERT INTO public.retailnetwork_address (id, country, city, street, house) VALUES (2,'France', null, null, null);
+INSERT INTO public.retailnetwork_address (id, country, city, street, house) VALUES (3,'Canada', 'Ottawa', null, null);
+INSERT INTO public.retailnetwork_address (id, country, city, street, house) VALUES (4,'Germany', 'Berlin', 'Berlin street', 1);
+INSERT INTO public.retailnetwork_address (id, country, city, street, house) VALUES (5,'Germany', 'Berlin', 'Berlin street', 1);
+
+-- Contacts:
+INSERT INTO public.retailnetwork_contacts (id, email, "idAddress_id") VALUES (1,'target@mail.ru', 1);
+INSERT INTO public.retailnetwork_contacts (id, email, "idAddress_id") VALUES (2,'aeon@mail.ru', 2);
+INSERT INTO public.retailnetwork_contacts (id, email, "idAddress_id") VALUES (3,'tescо@gmail.com', 3);
+INSERT INTO public.retailnetwork_contacts (id, email, "idAddress_id") VALUES (4,'carrefour@gmail.com', 4);
+INSERT INTO public.retailnetwork_contacts (id, email, "idAddress_id") VALUES (5,'depot@gmail.com', 5);
+
+-- Retailnetwork:
+INSERT INTO public.retailnetwork_retailnetwork (id, name, employees, debt, date_create, "idContacts_id", "idProvider_id") VALUES (1,'Target', 1133, 13.4, '2022-12-12 18:31:41.391000 +00:00', 1, 1);
+INSERT INTO public.retailnetwork_retailnetwork (id, name, employees, debt, date_create, "idContacts_id", "idProvider_id") VALUES (2,'Aeon', 3, 1312.3, '2022-03-12 18:31:41.391000 +00:00', 2, 2);
+INSERT INTO public.retailnetwork_retailnetwork (id, name, employees, debt, date_create, "idContacts_id", "idProvider_id") VALUES (3,'Tescо', 1413, 0, '2022-09-12 18:31:41.391000 +00:00', 3, 3);
+INSERT INTO public.retailnetwork_retailnetwork (id, name, employees, debt, date_create, "idContacts_id", "idProvider_id") VALUES (4,'Carrefour', 11323, 11.4343, '2020-11-12 18:31:41.391000 +00:00', 4, 4);
+INSERT INTO public.retailnetwork_retailnetwork (id, name, employees, debt, date_create, "idContacts_id", "idProvider_id") VALUES (5,'Depot', 143, 0, '2021-11-12 18:31:41.391000 +00:00', 5, 5);
+
+-- Product:
+INSERT INTO public.retailnetwork_products (id, name, model, date, "idRetailnetwork_id") VALUES (1,'TV Hisense 32A4BG', 'Hisense', '2019-09-12 18:36:53.835000 +00:00', 1);
+INSERT INTO public.retailnetwork_products (id, name, model, date, "idRetailnetwork_id") VALUES (2,'TV Toshiba 32V35KE', 'Toshiba', '2020-03-12 18:36:53.835000 +00:00', 2);
+INSERT INTO public.retailnetwork_products (id, name, model, date, "idRetailnetwork_id") VALUES (3,'TV Philips 43PUS7956/60', 'Philips', '2021-12-12 18:36:53.835000 +00:00', 3);
+INSERT INTO public.retailnetwork_products (id, name, model, date, "idRetailnetwork_id") VALUES (4,'TV Artel A32KH5500', 'Artel', '2020-01-12 18:36:53.835000 +00:00', 4);
+INSERT INTO public.retailnetwork_products (id, name, model, date, "idRetailnetwork_id") VALUES (5,'TV Hisense 55U7HQ', 'Hisense', '2001-12-12 18:36:53.835000 +00:00', 5);
+
+-- INSERT TABLE Indentrepreneur, Indentrepreneur_Product, Indentrepreneur_Contacts ,Indentrepreneur_Address;
+
+-- Address:
+INSERT INTO public.indentrepreneur_address (id, country, city, street, house) VALUES (1,'Russia', 'Moscow', 'Lenina', 13);
+INSERT INTO public.indentrepreneur_address (id, country, city, street, house) VALUES (2,'Belarus', 'Vitebsk', 'Yakub', 12);
+INSERT INTO public.indentrepreneur_address (id, country, city, street, house) VALUES (3,'Canada', 'Ottawa', null, null);
+INSERT INTO public.indentrepreneur_address (id, country, city, street, house) VALUES (4,'France', 'Paris', null, null);
+INSERT INTO public.indentrepreneur_address (id, country, city, street, house) VALUES (5,'Belarus', 'Minsk', 'Senica', 13);
+
+-- Contacts:
+INSERT INTO public.indentrepreneur_contacts (id, email, "idAddress_id") VALUES (1,'qpi@gmail.com', 1);
+INSERT INTO public.indentrepreneur_contacts (id, email, "idAddress_id") VALUES (2,'qulix@qmail.com', 2);
+INSERT INTO public.indentrepreneur_contacts (id, email, "idAddress_id") VALUES (3,'innk@mail.ru', 3);
+INSERT INTO public.indentrepreneur_contacts (id, email, "idAddress_id") VALUES (4,'adi@gmail.com', 4);
+INSERT INTO public.indentrepreneur_contacts (id, email, "idAddress_id") VALUES (5,'mark@mail.ru', 5);
+
+-- Indentrepreneur:
+INSERT INTO public.indentrepreneur_indentrepreneur (id, name, employees, debt, date_create, "idContacts_id", "idProvider_id") VALUES (1,'Qpi', 114, 140.543, '2010-11-13 18:58:07.466000 +00:00', 1, 1);
+INSERT INTO public.indentrepreneur_indentrepreneur (id, name, employees, debt, date_create, "idContacts_id", "idProvider_id") VALUES (2,'Qulix', 231, 0, '2021-11-13 18:58:07.466000 +00:00', 2, 2);
+INSERT INTO public.indentrepreneur_indentrepreneur (id, name, employees, debt, date_create, "idContacts_id", "idProvider_id") VALUES (3,'Innk', 14, 0.31, '2020-11-13 18:58:07.466000 +00:00', 3, 3);
+INSERT INTO public.indentrepreneur_indentrepreneur (id, name, employees, debt, date_create, "idContacts_id", "idProvider_id") VALUES (4,'Adi', 90, 114, '2003-11-13 18:58:07.466000 +00:00', 4, 4);
+INSERT INTO public.indentrepreneur_indentrepreneur (id, name, employees, debt, date_create, "idContacts_id", "idProvider_id") VALUES (5,'Mark', 5, 14123.1, '2021-11-13 18:58:07.466000 +00:00', 5, 5);
+
+-- Product:
+INSERT INTO public.indentrepreneur_products (id, name, model, date, "idIndentrepreneur_id") VALUES (1,'Notebook HP 15-dw3682nia', 'HP', '2003-11-13 19:03:19.768000 +00:00', 1);
+INSERT INTO public.indentrepreneur_products (id, name, model, date, "idIndentrepreneur_id") VALUES (2,'Notebook HUAWEI MateBook', 'HUAWEI', '2002-09-13 19:03:19.768000 +00:00', 2);
+INSERT INTO public.indentrepreneur_products (id, name, model, date, "idIndentrepreneur_id") VALUES (3,'Gaming laptop Thunderobot 911 Air D', 'Thunderobot', '2021-10-13 19:03:19.768000 +00:00', 3);
+INSERT INTO public.indentrepreneur_products (id, name, model, date, "idIndentrepreneur_id") VALUES (4,'Notebook HUAWEI MateBook 16S', 'HUAWEI', '2020-12-13 19:03:19.768000 +00:00', 4);
+INSERT INTO public.indentrepreneur_products (id, name, model, date, "idIndentrepreneur_id") VALUES (5,'Notebook HUAWEI MateBook 13S', 'HUAWEI', '2022-02-13 19:03:19.768000 +00:00', 5);
