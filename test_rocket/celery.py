@@ -26,7 +26,7 @@ def debug_task(self):
 app.conf.beat_schedule = {
     'every': {
         'task': 'factory.tasks.update_debt',
-        'schedule': crontab(),  # по умолчанию выполняет каждую минуту
+        'schedule': crontab(minute=30),
     },
 
 }
