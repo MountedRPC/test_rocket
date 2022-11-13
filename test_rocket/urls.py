@@ -13,6 +13,8 @@ urlpatterns = [
     path('api/v1/dealership/', include('dealership.urls')),
     path('api/v1/distributor/', include('distributor.urls')),
     # Part №2
+    path(r'auth/', include('djoser.urls')),
+    path(r'auth/', include('djoser.urls.authtoken')),
 
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

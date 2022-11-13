@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'celery',
     'retailnetwork',
+    'rest_framework.authtoken',
+    'djoser',
     'dealership',
     'distributor',
     'factory',
@@ -138,18 +140,17 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticated',
     ],
     'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.BasicAuthentication',
-        'rest_framework.authentication.TokenAuthentication',
     ),
     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
 }
 
-LOGIN_REDIRECT_URL = '/api/v1/main/'
+LOGIN_REDIRECT_URL = '/api/v1/auth'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = '/media/'
-
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
@@ -157,7 +158,6 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'email'
 EMAIL_HOST_PASSWORD = 'password'
-
 
 CELERY_BROKER_URL = "redis://127.0.0.1:6379/0"
 CELERY_RESULT_BACKEND = "redis://127.0.0.1:6379/0"
